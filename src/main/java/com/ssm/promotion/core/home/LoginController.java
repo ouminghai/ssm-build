@@ -74,6 +74,8 @@ public class LoginController {
      * @param session
      * @return
      */
+    @RequestMapping(value = "/userlogout" )
+    @ResponseBody
     public Result logout(HttpSession session){
         session.removeAttribute("currentUser");
         return ResultGenerator.genSuccessResult();
