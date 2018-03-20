@@ -6,10 +6,11 @@ import java.util.Map;
 import com.ssm.promotion.core.entity.User;
 import org.springframework.stereotype.Repository;
 
+
 /**
  * @author 1034683568@qq.com
- * @project_name perfect-ssm
- * @date 2017-3-1
+ * @project_name ssm-build
+ * @date 2017-03-20
  */
 @Repository
 public interface UserDao {

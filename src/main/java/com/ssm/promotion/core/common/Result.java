@@ -2,8 +2,9 @@ package com.ssm.promotion.core.common;
 
 import java.io.Serializable;
 
+
 /**
- * Created by 13 on 17/6/26.
+ * Created by 13 on 18/03/20.
  */
 public class Result<T> implements Serializable {
     private static final long serialVersionUID = 1L;

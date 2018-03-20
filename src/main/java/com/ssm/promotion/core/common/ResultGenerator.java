@@ -7,6 +7,10 @@ public class ResultGenerator {
     private static final String DEFAULT_SUCCESS_MESSAGE = "SUCCESS";
     private static final String DEFAULT_FAIL_MESSAGE = "FAIL";
 
+    /**
+     * 获取成功的结果
+     * @return
+     */
     public static Result genSuccessResult() {
         Result result = new Result();
         result.setResultCode(Constants.RESULT_CODE_SUCCESS);
@@ -14,6 +18,11 @@ public class ResultGenerator {
         return result;
     }
 
+    /**
+     *
+     * @param data
+     * @return
+     */
     public static Result genSuccessResult(Object data) {
         Result result = new Result();
         result.setResultCode(Constants.RESULT_CODE_SUCCESS);
@@ -22,6 +31,11 @@ public class ResultGenerator {
         return result;
     }
 
+    /**
+     *
+     * @param message
+     * @return
+     */
     public static Result genFailResult(String message) {
         Result result = new Result();
         result.setResultCode(Constants.RESULT_CODE_SERVER_ERROR);
