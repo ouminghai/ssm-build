@@ -26,17 +26,15 @@ public class UserController {
     private static final Logger log = Logger.getLogger(com.ssm.promotion.core.admin.UserController.class);// 日志文件
 
 
-
-
     /**
      * 登录
      *
      * @param user
      * @return
      */
-    @RequestMapping(value = "/cookie", method = RequestMethod.POST)
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
-    public Result Register(User user){
+    public Result login(User user){
         try {
             String MD5pwd = MD5Util.MD5Encode(user.getPassword(), "UTF-8");
             user.setPassword(MD5pwd);

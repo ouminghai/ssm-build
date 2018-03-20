@@ -1,7 +1,12 @@
 package com.ssm.promotion.core.entity;
 
-public class Register {
 
+/**
+ * @author user
+ * @project_name ssm-build
+ * @date 2017-03-20
+ */
+public class Register {
 
     private Integer id;
     private String userName;

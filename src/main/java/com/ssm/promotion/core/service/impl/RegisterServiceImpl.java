@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 
+
 @Service("registerService")
 public class RegisterServiceImpl implements RegisterService {
     @Resource
@@ -14,6 +15,6 @@ public class RegisterServiceImpl implements RegisterService {
 
     @Override
     public Register register(Register register) {
-        return null;
+        return registerDao.register(register);
     }
 }
