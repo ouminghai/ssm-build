@@ -13,7 +13,7 @@ function login() {
     $.ajax({
         type: "POST",
         dataType: "json",
-        url: "/users/cookie",
+        url: "/login/userlogin",
         data: $('#adminlogin').serialize(),
         success: function (result) {
             if (result.resultCode == 200) {

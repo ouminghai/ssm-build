@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -28,7 +29,6 @@ public class RegisterController {
 
     private static final Logger log = Logger.getLogger(RegisterController.class);
 
-
     /**
      * 登录
      *
@@ -37,7 +37,7 @@ public class RegisterController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Result register(@RequestBody Register register){
+    public Result register(Register register , HttpSession session){
 
         try {
             String repassword = register.getRepassword();
@@ -46,24 +46,23 @@ public class RegisterController {
             if(!repassword.equals(password)){
                 return ResultGenerator.genFailResult("两次输入密码不一致");
             }
-
+            log.info("request: register/register info, user: " + register.toString());
             //判断用户是否存在
             User registerTestUser = new User();
             registerTestUser.setUserName(register.getUserName());
             User s = userService.getOneUser(registerTestUser);
-
             if(s != null){
                 return ResultGenerator.genFailResult("用户已存在,请重试");
             }
 
             String MD5pwd = MD5Util.MD5Encode(register.getPassword(), "UTF-8");
             register.setPassword(MD5pwd);
-
+            log.info("request: register/register info2, user: " + register.toString());
         } catch (Exception e) {
             register.setPassword("");
         }
         int resultTotal = registerService.register(register);
-        log.info("request: register/register , user: " + register.toString());
+        log.info("request: register/register info3, user: " + register.toString());
 
         if (resultTotal < 0 ) {
             return ResultGenerator.genFailResult("注册失败");
@@ -71,6 +70,11 @@ public class RegisterController {
             register.setPassword("PASSWORD");
             Map data = new HashMap();
             data.put("currentUser", register);
+
+            //数据写入session
+            /*session.setAttribute("currentUser",register);
+            log.info("session info:"+session.getAttribute("currentUser").toString());*/
+
             return ResultGenerator.genSuccessResult(data);
         }
 

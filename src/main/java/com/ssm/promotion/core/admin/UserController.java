@@ -28,6 +28,7 @@ public class UserController {
 
     @Resource
     private UserService userService;
+
     private static final Logger log = Logger.getLogger(UserController.class);// 日志文件
 
     /**
@@ -36,7 +37,7 @@ public class UserController {
      * @param user
      * @return
      */
-    @RequestMapping(value = "/cookie", method = RequestMethod.POST)
+    /*@RequestMapping(value = "/cookie", method = RequestMethod.POST)
     @ResponseBody
     public Result login(User user) {
         try {
@@ -55,7 +56,7 @@ public class UserController {
             data.put("currentUser", resultUser);
             return ResultGenerator.genSuccessResult(data);
         }
-    }
+    }*/
 
 
     /**
