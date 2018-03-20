@@ -21,6 +21,7 @@ import java.util.Map;
 public class UserController {
 
 
+
     @Resource
     private UserService userService;
     private static final Logger log = Logger.getLogger(com.ssm.promotion.core.admin.UserController.class);// 日志文件

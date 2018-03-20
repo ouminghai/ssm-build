@@ -2,24 +2,27 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssm.promotion.core.dao.UserDao">
+<mapper namespace="com.ssm.promotion.core.dao.RegiterDao">
+
+    
     <resultMap type="Register" id="RegisterResult">
         <result property="id" column="id"/>
         <result property="userName" column="user_name"/>
         <result property="password" column="password"/>
-        <result property="roleName" column="role_name"/>
+        <result property="repassword" column="repassword"/>
     </resultMap>
 
-    <resultMap type="User" id="UserResult">
+    <!--<resultMap type="User" id="UserResult">
         <result property="id" column="id"/>
         <result property="userName" column="user_name"/>
         <result property="password" column="password"/>
         <result property="roleName" column="role_name"/>
-    </resultMap>
+    </resultMap>-->
 
     <select id="register" parameterType="Register" resultMap="RegisterResult">
-        insert into ssm_user(user_name,password)
-        values (#{userName},#{password})
+        insert into ssm_user(user_name,password) values (#{userName},#{password})
     </select>
+
+
 
 </mapper>

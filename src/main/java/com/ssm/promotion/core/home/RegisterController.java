@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,7 +18,9 @@ import java.util.Map;
 @RequestMapping("/register")
 public class RegisterController {
 
+    @Resource
     private RegisterService registerService;
+
     private static final Logger log = Logger.getLogger(com.ssm.promotion.core.home.RegisterController.class);
 
 
