@@ -1,22 +1,22 @@
 package com.ssm.promotion.core.entity;
 
-/**
- * @author user
- * @project_name 
- * @date 2017-3-1
- */
-public class User {
+public class Register {
+
+
+    private Integer id;
+    private String userName;
+    private String password;
+    private String repassword;
 
     @Override
     public String toString() {
-        return "User [id=" + id + ", userName=" + userName + ", password="
-                + password + ", roleName=" + roleName + "]";
+        return "Register{" +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", repassword='" + repassword + '\'' +
+                '}';
     }
-
-    private Integer id; // 主键
-    private String userName; // 用户姓名
-    private String password; // 密码
-    private String roleName; //
 
     public Integer getId() {
         return id;
@@ -42,12 +42,11 @@ public class User {
         this.password = password;
     }
 
-    public String getRoleName() {
-        return roleName;
+    public String getRepassword() {
+        return repassword;
     }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public void setRepassword(String repassword) {
+        this.repassword = repassword;
     }
-
 }
