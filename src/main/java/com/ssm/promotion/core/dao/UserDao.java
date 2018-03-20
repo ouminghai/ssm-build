@@ -24,6 +24,13 @@ public interface UserDao {
     public User login(User user);
 
     /**
+     * 查找用户
+     * @param user
+     * @return
+     */
+    public User getOneUser(User user);
+
+    /**
      * 查找用户列表
      *
      * @param map

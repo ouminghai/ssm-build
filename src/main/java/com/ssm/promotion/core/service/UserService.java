@@ -19,10 +19,19 @@ public interface UserService {
     public User login(User user);
 
     /**
+     * 查询用户
+     * @param user
+     * @return
+     */
+    public User getOneUser(User user);
+
+
+    /**
      * @param map
      * @return
      */
     public List<User> findUser(Map<String, Object> map);
+
 
     /**
      * @param map

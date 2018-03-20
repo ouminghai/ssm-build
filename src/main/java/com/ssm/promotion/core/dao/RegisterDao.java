@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface RegisterDao {
 
-    public Register register (Register register);
+    public Integer register (Register register);
 
 }

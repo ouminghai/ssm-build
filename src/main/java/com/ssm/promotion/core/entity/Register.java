@@ -15,12 +15,12 @@ public class Register {
 
     @Override
     public String toString() {
-        return "Register{" +
+        return "Register [" +
                 "id=" + id +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", repassword='" + repassword + '\'' +
-                '}';
+                ']';
     }
 
     public Integer getId() {

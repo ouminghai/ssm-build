@@ -29,6 +29,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public User getOneUser(User user) { return userDao.getOneUser(user); }
+
+    @Override
     public List<User> findUser(Map<String, Object> map) {
         return userDao.findUsers(map);
     }
@@ -42,6 +45,8 @@ public class UserServiceImpl implements UserService {
         user.setUserName(AntiXssUtil.replaceHtmlCode(user.getUserName()));
         return userDao.updateUser(user);
     }
+
+
 
     @Override
     public Long getTotalUser(Map<String, Object> map) {

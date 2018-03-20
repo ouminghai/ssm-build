@@ -8,7 +8,7 @@ public interface RegisterService {
      * @param register
      * @return
      */
-    public Register register(Register register);
+    public Integer register(Register register);
 
 
 }

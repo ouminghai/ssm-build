@@ -8,7 +8,7 @@
         <result property="id" column="id"/>
         <result property="userName" column="user_name"/>
         <result property="password" column="password"/>
-        <result property="repassword" column="password"/>
+        <result property="repassword" column="repassword"/>
     </resultMap>
 
     <!--<resultMap type="User" id="UserResult">
@@ -18,10 +18,10 @@
         <result property="roleName" column="role_name"/>
     </resultMap>-->
 
-    <select id ="register" parameterType="Register">
-        insert into ssm_user(user_name,password) values (#{userName},#{password})
-    </select>
-
+    <insert id="register" parameterType="Register">
+        insert into ssm_user(user_name,password)
+        values(#{userName},#{password})
+    </insert>
 
 
 </mapper>

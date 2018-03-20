@@ -14,7 +14,7 @@ public class RegisterServiceImpl implements RegisterService {
     private RegisterDao registerDao;
 
     @Override
-    public Register register(Register register) {
+    public Integer register(Register register) {
         return registerDao.register(register);
     }
 }
