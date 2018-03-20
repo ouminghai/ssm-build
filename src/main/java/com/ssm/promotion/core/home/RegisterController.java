@@ -7,7 +7,8 @@ import com.ssm.promotion.core.entity.User;
 import com.ssm.promotion.core.service.RegisterService;
 import com.ssm.promotion.core.service.UserService;
 import com.ssm.promotion.core.util.MD5Util;
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -27,7 +28,7 @@ public class RegisterController {
     @Resource
     private UserService userService;
 
-    private static final Logger log = Logger.getLogger(RegisterController.class);
+    private static final Logger log = LoggerFactory.getLogger(RegisterController.class);
 
     /**
      * 登录

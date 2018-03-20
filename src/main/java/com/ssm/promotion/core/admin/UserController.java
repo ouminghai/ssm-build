@@ -23,41 +23,13 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/users")
+@RequestMapping("/admin/users")
 public class UserController {
 
     @Resource
     private UserService userService;
 
     private static final Logger log = Logger.getLogger(UserController.class);// 日志文件
-
-    /**
-     * 登录
-     *
-     * @param user
-     * @return
-     */
-    /*@RequestMapping(value = "/cookie", method = RequestMethod.POST)
-    @ResponseBody
-    public Result login(User user) {
-        try {
-            String MD5pwd = MD5Util.MD5Encode(user.getPassword(), "UTF-8");
-            user.setPassword(MD5pwd);
-        } catch (Exception e) {
-            user.setPassword("");
-        }
-        User resultUser = userService.login(user);
-        log.info("request: user/login , user: " + user.toString());
-        if (resultUser == null) {
-            return ResultGenerator.genFailResult("请认真核对账号、密码！");
-        } else {
-            resultUser.setPassword("PASSWORD");
-            Map data = new HashMap();
-            data.put("currentUser", resultUser);
-            return ResultGenerator.genSuccessResult(data);
-        }
-    }*/
-
 
     /**
      * @param page
@@ -84,6 +56,7 @@ public class UserController {
         ResponseUtil.write(response, result);
         return null;
     }
+
 
     /**
      * 添加或修改管理员

@@ -22,7 +22,7 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/articles")
+@RequestMapping("/admin/articles")
 public class ArticleController {
     @Resource
     private ArticleService articleService;

@@ -21,7 +21,7 @@ import java.util.Random;
  * Created by 13 on 2017/4/7.
  */
 @Controller
-@RequestMapping("/images")
+@RequestMapping("/admin/images")
 public class LoadImageController {
 
     /**

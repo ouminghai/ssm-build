@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/pictures")
+@RequestMapping("/admin/pictures")
 public class PictureController {
     @Resource
     private PictureService pictureService;

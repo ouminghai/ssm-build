@@ -21,12 +21,12 @@ import java.util.Map;
 
 @Controller
 @RequestMapping("/login")
-public class UserController {
+public class LoginController {
 
     @Resource
     private UserService userService;
 
-    private static final Logger log =  LoggerFactory.getLogger(UserController.class);// 日志文件
+    private static final Logger log =  LoggerFactory.getLogger(LoginController.class);// 日志文件
 
     /**
      * 用户系统登陆逻辑
@@ -69,6 +69,15 @@ public class UserController {
 
     }
 
+    /**
+     * 用户系统登陆逻辑
+     * @param session
+     * @return
+     */
+    public Result logout(HttpSession session){
+        session.removeAttribute("currentUser");
+        return ResultGenerator.genSuccessResult();
+    }
 
 
 }

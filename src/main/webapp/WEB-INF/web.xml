@@ -6,7 +6,7 @@
         version="3.0"
         metadata-complete="true">
 
-    <display-name>perfect-ssm</display-name>
+    <display-name>ssm-build</display-name>
     <welcome-file-list>
         <welcome-file>index.html</welcome-file>
     </welcome-file-list>
@@ -29,6 +29,18 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!--filter 定义 -->
+
+    <filter>
+        <filter-name>permissionFilter</filter-name>
+        <filter-class>com.ssm.promotion.core.filter.LoginFilter</filter-class>
+    </filter>
+    <filter-mapping>
+        <filter-name>permissionFilter</filter-name>
+        <url-pattern>/admin/*</url-pattern>
+    </filter-mapping>
+
+
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
@@ -50,7 +62,7 @@
     </servlet-mapping>
 
     <!--错误页面配置,这里只是简单的配置了一下 -->
-    <error-page>
+    <!--<error-page>
         <error-code>404</error-code>
         <location>/main.jsp</location>
     </error-page>
@@ -65,6 +77,6 @@
     <error-page>
         <error-code>500</error-code>
         <location>/main.jsp</location>
-    </error-page>
+    </error-page>-->
     <!--错误页面配置 -->
 </web-app>
