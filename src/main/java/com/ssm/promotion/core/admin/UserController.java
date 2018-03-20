@@ -31,6 +31,28 @@ public class UserController {
 
     private static final Logger log = Logger.getLogger(UserController.class);// 日志文件
 
+
+    /**
+     * 获取所有用户
+     * @param response
+     * @return
+     * @throws Exception
+     */
+    @RequestMapping(value = "/alluser" , method = RequestMethod.POST)
+    @ResponseBody
+    public Result alluser( HttpServletResponse response) throws Exception {
+
+        List<User> userList = userService.getAllUser();
+
+        JSONArray jsonArray = JSONArray.fromObject(userList);
+
+        return ResultGenerator.genSuccessResult(jsonArray);
+    }
+
+
+
+
+
     /**
      * @param page
      * @param rows
@@ -57,16 +79,6 @@ public class UserController {
         return null;
     }
 
-    @RequestMapping(value = "/alluser" , method = RequestMethod.POST)
-    @ResponseBody
-    public Result alluser( HttpServletResponse response) throws Exception {
-
-        List<User> userList = userService.getAllUser();
-
-        JSONArray jsonArray = JSONArray.fromObject(userList);
-
-        return ResultGenerator.genSuccessResult(jsonArray);
-    }
 
     /**
      * 添加或修改管理员
