@@ -1,6 +1,8 @@
 package com.ssm.promotion.core.filter;
 
 
+import org.springframework.stereotype.Component;
+
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -9,6 +11,7 @@ import java.io.IOException;
 /**
  * 登录请求过滤器：如果用户没有登录，让其跳转到登录界面
  */
+@Component
 public class LoginFilter implements Filter {
 
     public void init(FilterConfig filterConfig) throws ServletException {
