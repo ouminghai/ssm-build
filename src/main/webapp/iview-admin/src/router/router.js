@@ -76,6 +76,21 @@ export const otherRouter = {
 // 作为Main组件的子页面展示并且在左侧菜单显示的路由写在appRouter里
 export const appRouter = [
     {
+        path: '/usercenter',
+        icon: 'person',
+        name: 'usercenter',
+        title: '用户中心',
+        component: Main,
+        children: [
+            {
+                path: 'index',
+                icon: 'persion',
+                name: 'user-mangaer',
+                title: '用户管理',
+                component: () => import('@/views/usercenter/user.vue')
+            }]
+    },
+    {
         path: '/access',
         icon: 'key',
         name: 'access',
@@ -106,6 +121,7 @@ export const appRouter = [
             { path: 'index', title: {i18n: 'international'}, name: 'international_index', component: () => import('@/views/international/international.vue') }
         ]
     },
+
     {
         path: '/component',
         icon: 'social-buffer',

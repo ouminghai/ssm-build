@@ -23,7 +23,7 @@ import java.util.Map;
 
 
 @Controller
-@RequestMapping("/admin/users")
+@RequestMapping("/users")
 public class UserController {
 
     @Resource
@@ -57,6 +57,16 @@ public class UserController {
         return null;
     }
 
+    @RequestMapping(value = "/alluser" , method = RequestMethod.POST)
+    @ResponseBody
+    public Result alluser( HttpServletResponse response) throws Exception {
+
+        List<User> userList = userService.getAllUser();
+
+        JSONArray jsonArray = JSONArray.fromObject(userList);
+
+        return ResultGenerator.genSuccessResult(jsonArray);
+    }
 
     /**
      * 添加或修改管理员

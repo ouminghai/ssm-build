@@ -55,6 +55,10 @@
     <!-- 使用了<url-pattern>/</url-pattern>,所以要对静态资源进行处理 -->
     <mvc:default-servlet-handler/>
 
+    <mvc:cors>
+        <mvc:mapping path="/**" />
+    </mvc:cors>
+
     <!-- 默认的视图解析器 在上边的解析错误时使用 (默认使用html)- -->
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver"
           p:order="1">
@@ -64,17 +68,6 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
-    <mvc:interceptors>
-        <mvc:interceptor>
-            <mvc:mapping path="/**" />
-            <bean class="com.ssm.promotion.core.filter.CommonInterceptor">
-                <property name="excludedUrls">
-                    <list>
-                        <value>/</value>
-                    </list>
-                </property>
-            </bean>
-        </mvc:interceptor>
-    </mvc:interceptors>
+
 
 </beans>

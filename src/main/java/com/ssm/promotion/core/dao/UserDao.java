@@ -39,6 +39,14 @@ public interface UserDao {
     public List<User> findUsers(Map<String, Object> map);
 
     /**
+     * 查找用户列表
+     * @return
+     */
+    public List<User> getAllUser();
+
+
+
+    /**
      * @param map
      * @return
      */

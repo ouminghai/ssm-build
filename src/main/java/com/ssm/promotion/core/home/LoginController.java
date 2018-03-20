@@ -9,10 +9,7 @@ import com.ssm.promotion.core.util.MD5Util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
@@ -35,8 +32,7 @@ public class LoginController {
      */
     @RequestMapping(value = "/userlogin" , method = RequestMethod.POST)
     @ResponseBody
-    public Result login(User user , @RequestParam(value = "verifty" ,required = false) String verify ,
-                        HttpSession session) {
+    public Result login(@RequestBody User user , HttpSession session) {
         try {
             String MD5pwd = MD5Util.MD5Encode(user.getPassword() , "UTF-8");
             user.setPassword(MD5pwd);
@@ -44,8 +40,9 @@ public class LoginController {
             user.setPassword("");
         }
         User resultUser = userService.getOneUser(user);
-
+        log.info("用户查询 ： {}",resultUser);
         if( resultUser == null ){
+
             return ResultGenerator.genFailResult("帐号不存在");
         }else{
 

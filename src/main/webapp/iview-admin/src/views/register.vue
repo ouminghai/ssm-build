@@ -76,12 +76,14 @@ export default {
                     if(this.form.password != this.form.repassword) {
                         this.$Message.error('两次密码必须一致');return true;
                     }else{
-                        console.log(Vue.axios);
-                        Vue.axios.post("register/register",{
+
+                        Vue.axios.post("register/register",
+                                {
                             userName :  this.form.userName,
                             password : this.form.password,
-                            repassword: this.form.repassword
-                        }).then((response) =>{
+                                    repassword: this.form.repassword
+                        }
+                        ).then((response) =>{
 
                             if(response.data.resultCode == 200){
                                 this.$router.push({

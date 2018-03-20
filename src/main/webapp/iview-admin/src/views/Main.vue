@@ -76,7 +76,7 @@
     import themeSwitch from './main-components/theme-switch/theme-switch.vue';
     import Cookies from 'js-cookie';
     import util from '@/libs/util.js';
-    
+    import Vue from 'vue';
     export default {
         components: {
             shrinkableMenu,
@@ -147,9 +147,16 @@
                     // 退出登录
                     this.$store.commit('logout', this);
                     this.$store.commit('clearOpenedSubmenu');
-                    this.$router.push({
-                        name: 'login'
+
+                    Vue.axios.post("login/userlogout").then((response) =>{
+                        if(response.data.resultCode == 200){
+                            this.$router.push({
+                                name: 'login'
+                            });
+                        }
                     });
+
+
                 }
             },
             checkTag (name) {

@@ -13,14 +13,11 @@ public class Register {
     private String password;
     private String repassword;
 
+
     @Override
     public String toString() {
-        return "Register [" +
-                "id=" + id +
-                ", userName='" + userName + '\'' +
-                ", password='" + password + '\'' +
-                ", repassword='" + repassword + '\'' +
-                ']';
+        return "Register [id=" + id + ", userName=" + userName + ", password="
+                + password + ", repassword=" + repassword + "]";
     }
 
     public Integer getId() {

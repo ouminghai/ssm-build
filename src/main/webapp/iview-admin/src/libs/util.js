@@ -7,7 +7,7 @@ let util = {
 
 };
 util.title = function (title) {
-    title = title || '台山国税信息中心ttt';
+    title = title || '台山国税信息中心 数据平台';
     window.document.title = title;
 };
 

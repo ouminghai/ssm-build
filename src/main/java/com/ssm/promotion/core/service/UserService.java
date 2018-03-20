@@ -33,6 +33,8 @@ public interface UserService {
     public List<User> findUser(Map<String, Object> map);
 
 
+    public List<User> getAllUser();
+
     /**
      * @param map
      * @return

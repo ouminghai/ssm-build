@@ -14,7 +14,9 @@ Vue.axios.interceptors.request.use(function(config) {
             ? 'http://127.0.0.1:8080'
             : 'http://127.0.0.1:8080';
     config.baseURL = ajaxUrl;
-    config.headers['Content-Type'] = 'multipart/form-data';
+    //config.headers['Content-Type'] = 'multipart/form-data';
+
+    //config.headers['Content-Type'] = 'application/x-www-form-urlencoded';
     return config;
 
 },function(error) {

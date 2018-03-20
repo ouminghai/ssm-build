@@ -38,16 +38,16 @@ public class RegisterController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Result register(Register register , @RequestParam(value = "verifty" ,required = false) String verify,HttpSession session){
-
+    public Result register(@RequestBody Register register , HttpSession session){
+        log.info("request: register/register info, user: {}" ,register);
         try {
             String repassword = register.getRepassword();
             String password = register.getPassword();
 
+            log.info("request: register/register info, user: " + register.toString());
             if(!repassword.equals(password)){
                 return ResultGenerator.genFailResult("两次输入密码不一致");
             }
-            log.info("request: register/register info, user: " + register.toString());
             //判断用户是否存在
             User registerTestUser = new User();
             registerTestUser.setUserName(register.getUserName());

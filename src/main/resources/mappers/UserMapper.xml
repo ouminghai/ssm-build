@@ -27,6 +27,10 @@
         </if>
     </select>
 
+    <select id="getAllUser" parameterType="Map" resultMap="UserResult">
+        select id,user_name,password,role_name from ssm_user
+    </select>
+
     <select id="getTotalUser" parameterType="Map" resultType="Long">
         select count(*) from ssm_user
         <where>
