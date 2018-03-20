@@ -40,14 +40,14 @@
         <url-pattern>/admin/*</url-pattern>
     </filter-mapping>
 
-    <filter>
+    <!--<filter>
         <filter-name>CorsFilter</filter-name>
         <filter-class>com.ssm.promotion.core.filter.myCORSFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>CorsFilter</filter-name>
         <url-pattern>*</url-pattern>
-    </filter-mapping>
+    </filter-mapping>-->
 
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -60,6 +60,10 @@
             <param-name>contextConfigLocation</param-name>
             <param-value>classpath:spring-context-mvc.xml</param-value>
         </init-param>
+        <init-param>
+            <param-name>dispatchOptionsRequest</param-name>
+            <param-value>true</param-value>
+        </init-param>
         <!--加载顺序为1 -->
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -68,6 +72,7 @@
         <servlet-name>springMVC</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
+
 
     <!--错误页面配置,这里只是简单的配置了一下 -->
     <!--<error-page>

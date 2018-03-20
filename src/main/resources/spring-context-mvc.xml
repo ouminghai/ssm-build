@@ -20,6 +20,7 @@
         <property name="suffix" value=".jsp"></property>
     </bean>
 
+    <!-- 设置支持multi formdata-->
     <bean id="multipartResolver"
           class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
         <property name="maxUploadSize" value="3500000"/>
@@ -63,5 +64,17 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <bean class="com.ssm.promotion.core.filter.CommonInterceptor">
+                <property name="excludedUrls">
+                    <list>
+                        <value>/</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
 
 </beans>

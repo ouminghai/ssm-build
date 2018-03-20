@@ -69,13 +69,11 @@ export default {
         };
     },
     methods: {
+
         handleSubmit () {
-            console.log(Vue.axios);
             this.$refs.registerForm.validate((valid) => {
                 if (valid) {
-
                     if(this.form.password != this.form.repassword) {
-
                         this.$Message.error('两次密码必须一致');return true;
                     }else{
                         console.log(Vue.axios);
@@ -84,7 +82,7 @@ export default {
                             password : this.form.password,
                             repassword: this.form.repassword
                         }).then((response) =>{
-                            console.log(response);
+
                             if(response.data.resultCode == 200){
                                 this.$router.push({
                                     name: 'login'

@@ -38,7 +38,7 @@ public class RegisterController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Result register(Register register , HttpSession session){
+    public Result register(Register register , @RequestParam(value = "verifty" ,required = false) String verify,HttpSession session){
 
         try {
             String repassword = register.getRepassword();

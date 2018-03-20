@@ -19,9 +19,9 @@ public class myCORSFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         String origin = (String) servletRequest.getRemoteHost()+":"+servletRequest.getRemotePort();
         response.setHeader("Access-Control-Allow-Origin", "*");
-        //.setHeader("Access-Control-Allow-Methods", "*");
+        response.setHeader("Access-Control-Allow-Methods", "*");
         //response.setHeader("Access-Control-Max-Age", "3600");
-        //response.setHeader("Access-Control-Allow-Headers", "x-requested-with,Authorization");
+        response.setHeader("Access-Control-Allow-Headers", "Access-Control");
         //response.setHeader("Access-Control-Allow-Credentials","true");
         filterChain.doFilter(servletRequest, servletResponse);
 
