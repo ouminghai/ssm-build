@@ -28,8 +28,10 @@ public class UserServiceImpl implements UserService {
         return userDao.login(user);
     }
 
+
     @Override
     public User getOneUser(User user) { return userDao.getOneUser(user); }
+
 
     @Override
     public List<User> findUser(Map<String, Object> map) {

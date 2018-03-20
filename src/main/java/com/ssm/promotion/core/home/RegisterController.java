@@ -37,7 +37,7 @@ public class RegisterController {
      */
     @RequestMapping(value = "/register", method = RequestMethod.POST)
     @ResponseBody
-    public Result register(Register register){
+    public Result register(@RequestBody Register register){
 
         try {
             String repassword = register.getRepassword();
@@ -48,10 +48,11 @@ public class RegisterController {
             }
 
             //判断用户是否存在
-            User registerUser = new User();
-            registerUser.setUserName(register.getUserName());
-            User s = userService.getOneUser(registerUser);
-            if(s !=null){
+            User registerTestUser = new User();
+            registerTestUser.setUserName(register.getUserName());
+            User s = userService.getOneUser(registerTestUser);
+
+            if(s != null){
                 return ResultGenerator.genFailResult("用户已存在,请重试");
             }
 

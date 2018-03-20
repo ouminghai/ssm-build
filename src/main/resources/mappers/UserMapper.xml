@@ -15,11 +15,6 @@
         ssm_user where user_name=#{userName} and password=#{password} limit 1
     </select>
 
-    <select id="getOneUser" parameterMap="User" resultMap="UserResult">
-        select id,user_name,password,role_name from
-        ssm_user where user_name=#{userName} limit 1
-    </select>
-
     <select id="findUsers" parameterType="Map" resultMap="UserResult">
         select id,user_name,password,role_name from ssm_user
         <where>
@@ -63,4 +58,10 @@
         delete from ssm_user
         where id=#{id}
     </delete>
+
+    <select id="getOneUser" parameterType="User" resultMap="UserResult">
+        select id,user_name,password,role_name from
+        ssm_user where user_name=#{userName} limit 1
+    </select>
+
 </mapper> 
